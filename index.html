@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111827">
+<title>Capixaba Tips</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="logo">CT</span><div><strong>Capixaba Tips</strong><small>Análises esportivas</small></div></div>
+  <button id="themeBtn" class="icon-btn" aria-label="Tema">☾</button>
+</header>
+
+<main>
+<section class="hero">
+  <div>
+    <span class="pill">ODDS • ANÁLISES • ALERTAS</span>
+    <h1>Encontre análises por faixa de odd.</h1>
+    <p>Organize oportunidades publicadas no seu feed, separando Free e VIP.</p>
+  </div>
+  <div class="hero-card"><b>1,25 → 4,00</b><span>Odd baixa</span><b>5,00 → 100</b><span>Odd alta</span></div>
+</section>
+
+<nav class="tabs" role="tablist">
+  <button class="active" data-tab="free">Free</button>
+  <button data-tab="vip">VIP</button>
+  <button data-tab="low">Odd baixa</button>
+  <button data-tab="high">Odd alta</button>
+</nav>
+
+<section id="free" class="panel active">
+  <div class="section-head"><h2>Free</h2><span id="freeCount"></span></div>
+  <div id="freeList" class="cards"></div>
+</section>
+
+<section id="vip" class="panel">
+  <div class="vip-lock">
+    <span class="crown">♛</span>
+    <h2>Grupo VIP</h2>
+    <p>Área reservada para assinantes. Aqui você pode publicar análises exclusivas, filtros e alertas.</p>
+    <button onclick="showVip()">Entrar no VIP</button>
+  </div>
+  <div id="vipList" class="cards hidden"></div>
+</section>
+
+<section id="low" class="panel">
+  <div class="section-head"><h2>Odd baixa</h2><span>1,25–4,00</span></div>
+  <div id="lowList" class="cards"></div>
+</section>
+
+<section id="high" class="panel">
+  <div class="section-head"><h2>Odd alta</h2><span>5,00–100,00</span></div>
+  <div id="highList" class="cards"></div>
+</section>
+
+<section class="info">
+  <h3>Como funciona</h3>
+  <div class="steps">
+    <div><b>01</b><span>Seu feed/API fornece as odds.</span></div>
+    <div><b>02</b><span>O sistema identifica Betano e bet365.</span></div>
+    <div><b>03</b><span>As análises são classificadas e publicadas.</span></div>
+  </div>
+  <p class="warning">⚠️ Nenhuma odd garante resultado. Use gestão de banca e confira as condições na casa de apostas antes de apostar.</p>
+</section>
+</main>
+
+<footer>Capixaba Tips • <span id="year"></span></footer>
+<script src="app.js"></script>
+</body>
+</html>
