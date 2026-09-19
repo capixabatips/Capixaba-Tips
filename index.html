@@ -1,73 +1,122 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#111827">
-<title>Capixaba Tips</title>
-<link rel="manifest" href="manifest.json">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Capixaba Tips — plataforma de análises esportivas.">
+  <title>Capixaba Tips | Análises Esportivas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="top">
-  <div class="brand"><span class="logo">CT</span><div><strong>Capixaba Tips</strong><small>Análises esportivas</small></div></div>
-  <button id="themeBtn" class="icon-btn" aria-label="Tema">☾</button>
-</header>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="crown">♛</div>
+        <div class="brand-name">CAPIXABA<span>TIPS</span></div>
+        <small>ANÁLISES QUE FAZEM A DIFERENÇA</small>
+      </div>
 
-<main>
-<section class="hero">
-  <div>
-    <span class="pill">ODDS • ANÁLISES • ALERTAS</span>
-    <h1>Encontre análises por faixa de odd.</h1>
-    <p>Organize oportunidades publicadas no seu feed, separando Free e VIP.</p>
+      <nav>
+        <button class="nav-item active" data-section="inicio">⌂ <span>Início</span></button>
+        <button class="nav-item" data-section="analises">◎ <span>Análises do Dia</span></button>
+        <button class="nav-item" data-section="jogos">▣ <span>Jogos de Hoje</span></button>
+        <button class="nav-item" data-section="historico">↗ <span>Histórico</span></button>
+        <button class="nav-item" data-section="estatisticas">▥ <span>Estatísticas</span></button>
+        <button class="nav-item" data-section="campeonatos">◈ <span>Campeonatos</span></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <button class="nav-item" data-section="suporte">◌ <span>Suporte</span></button>
+        <div class="social-card">
+          <small>Siga nossas redes</small>
+          <div class="socials">
+            <span>◎</span><span>♪</span><span>▶</span>
+          </div>
+          <strong>♛ Capixaba Tips</strong>
+          <p>é pra quem joga com estratégia!</p>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <span class="eyebrow">PAINEL ESPORTIVO</span>
+          <h1>Olá, <span>Capixaba!</span></h1>
+        </div>
+        <div class="profile">
+          <button class="icon-btn" aria-label="Notificações">♧<i></i></button>
+          <div class="avatar">CT</div>
+          <div><strong>Capixaba Tips</strong><small>Bem-vindo!</small></div>
+          <span>⌄</span>
+        </div>
+      </header>
+
+      <section class="hero" id="inicio">
+        <div class="hero-copy">
+          <span class="pill">● ANÁLISES ATUALIZADAS</span>
+          <h2>CAPIXABA<br><em>TIPS</em></h2>
+          <p>Encontre análises organizadas por faixa de odd, mercado e campeonato.</p>
+          <div class="hero-actions">
+            <button class="primary" data-section="analises">Ver análises <span>→</span></button>
+            <button class="ghost" data-section="historico">Ver histórico</button>
+          </div>
+        </div>
+        <div class="hero-badges">
+          <div><strong>ODD BAIXA</strong><b>1,25 — 4,00</b><small>Faixa de menor cotação</small></div>
+          <div><strong>ODD ALTA</strong><b>5,00 — 100</b><small>Maior cotação, maior variabilidade</small></div>
+        </div>
+        <div class="capy">🦫<span>♛</span></div>
+      </section>
+
+      <section class="quick-grid">
+        <article class="quick green"><span>🛡️</span><div><small>ODD BAIXA</small><strong>1,25 — 4,00</strong><p>Filtros e análises organizadas</p></div><b>→</b></article>
+        <article class="quick purple"><span>🚀</span><div><small>ODD ALTA</small><strong>5,00 — 100</strong><p>Maior cotação, maior variabilidade</p></div><b>→</b></article>
+        <article class="quick"><span>🏆</span><div><small>ANÁLISES DO DIA</small><strong>Confira as entradas</strong><p>Veja as recomendações cadastradas</p></div><b>→</b></article>
+        <article class="quick"><span>📅</span><div><small>JOGOS DE HOJE</small><strong>Partidas e mercados</strong><p>Organizados em um só lugar</p></div><b>→</b></article>
+      </section>
+
+      <section class="content-grid">
+        <div class="panel">
+          <div class="panel-head">
+            <div><span class="section-kicker">🔥 AO VIVO NO PAINEL</span><h2>Análises do Dia <span class="tag">DEMO</span></h2></div>
+            <select id="oddFilter"><option value="all">Todas as odds</option><option value="low">Odd 1,25–4,00</option><option value="high">Odd 5,00–100</option></select>
+          </div>
+          <div class="analysis-list" id="analysisList"></div>
+        </div>
+
+        <aside class="right-column">
+          <div class="panel stats">
+            <div class="panel-head compact"><h3>Resumo do painel</h3><span>Hoje</span></div>
+            <div class="stat-row"><span>Total de análises</span><b id="total">12</b></div>
+            <div class="stat-row"><span>Resultados positivos</span><b id="positive">9</b></div>
+            <div class="stat-row"><span>Resultados negativos</span><b id="negative">3</b></div>
+            <div class="stat-row highlight"><span>Taxa histórica</span><b id="rate">75%</b></div>
+          </div>
+
+          <div class="panel bankroll">
+            <div class="coin">▣</div><h3>Gestão responsável</h3>
+            <p>Defina limites e nunca comprometa dinheiro necessário para despesas.</p>
+            <button class="primary full">Ver dicas de gestão →</button>
+          </div>
+
+          <div class="panel contact">
+            <h3>Fale conosco</h3><p>Receba atualizações pelos nossos canais.</p>
+            <button class="whatsapp">◉ WhatsApp <span>→</span></button>
+            <button class="telegram">➤ Telegram <span>→</span></button>
+          </div>
+        </aside>
+      </section>
+
+      <footer>
+        <div><strong>♛ Capixaba Tips</strong> — análises esportivas em um só lugar.</div>
+        <small>18+ • Jogue com responsabilidade • Conteúdo informativo, sem garantia de resultado.</small>
+      </footer>
+    </main>
   </div>
-  <div class="hero-card"><b>1,25 → 4,00</b><span>Odd baixa</span><b>5,00 → 100</b><span>Odd alta</span></div>
-</section>
-
-<nav class="tabs" role="tablist">
-  <button class="active" data-tab="free">Free</button>
-  <button data-tab="vip">VIP</button>
-  <button data-tab="low">Odd baixa</button>
-  <button data-tab="high">Odd alta</button>
-</nav>
-
-<section id="free" class="panel active">
-  <div class="section-head"><h2>Free</h2><span id="freeCount"></span></div>
-  <div id="freeList" class="cards"></div>
-</section>
-
-<section id="vip" class="panel">
-  <div class="vip-lock">
-    <span class="crown">♛</span>
-    <h2>Grupo VIP</h2>
-    <p>Área reservada para assinantes. Aqui você pode publicar análises exclusivas, filtros e alertas.</p>
-    <button onclick="showVip()">Entrar no VIP</button>
-  </div>
-  <div id="vipList" class="cards hidden"></div>
-</section>
-
-<section id="low" class="panel">
-  <div class="section-head"><h2>Odd baixa</h2><span>1,25–4,00</span></div>
-  <div id="lowList" class="cards"></div>
-</section>
-
-<section id="high" class="panel">
-  <div class="section-head"><h2>Odd alta</h2><span>5,00–100,00</span></div>
-  <div id="highList" class="cards"></div>
-</section>
-
-<section class="info">
-  <h3>Como funciona</h3>
-  <div class="steps">
-    <div><b>01</b><span>Seu feed/API fornece as odds.</span></div>
-    <div><b>02</b><span>O sistema identifica Betano e bet365.</span></div>
-    <div><b>03</b><span>As análises são classificadas e publicadas.</span></div>
-  </div>
-  <p class="warning">⚠️ Nenhuma odd garante resultado. Use gestão de banca e confira as condições na casa de apostas antes de apostar.</p>
-</section>
-</main>
-
-<footer>Capixaba Tips • <span id="year"></span></footer>
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
